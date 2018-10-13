@@ -58,15 +58,23 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "language_conventions.html#",
-    "page": "-",
-    "title": "-",
+    "page": "Language & Conventions",
+    "title": "Language & Conventions",
     "category": "page",
-    "text": "PowerDynBasePowerDynBase# Language & ConventionsGenerally, variables are miniscule (e.g. u, i, ω) and parameters are capitalized (e.g. H, D, P, Ω). As it is common to use greek letters for modeling equations and Julia supports Unicode, greek letters are used within the Code, e.g. Ω and ω in PowerDynBase.SwingEq. If you don\'t want to use greek keyboard (which I am currently switching to) you can simply type the latex representating \\Omega and Atom can complete it with Ω using Tab."
+    "text": ""
+},
+
+{
+    "location": "language_conventions.html#Language-and-Conventions-1",
+    "page": "Language & Conventions",
+    "title": "Language & Conventions",
+    "category": "section",
+    "text": "Generally, variables are miniscule (e.g. u, i, ω) and parameters are capitalized (e.g. H, D, P, Ω). As it is common to use greek letters for modeling equations and Julia supports Unicode, greek letters are used within the Code, e.g. Ω and ω in PowerDynBase.SwingEq. If you don\'t want to use greek keyboard (which I am currently switching to) you can simply type the latex representating \\Omega and Atom can complete it with Ω using Tab."
 },
 
 {
     "location": "language_conventions.html#List-of-symbols-and-corresponding-names-1",
-    "page": "-",
+    "page": "Language & Conventions",
     "title": "List of symbols and corresponding names",
     "category": "section",
     "text": "Symbol (Code) Symbol (Math) Name within PowerDynamics.jl Common alternative names\n  node bus, vertex\n  grid network, power grid, power network\n y_ab = y_ba admittance between nodes a and b \nLY Y^L admittance laplacian (nodal) admittance matrix\nt t time \nim j imaginary element sqrt-1\nu = v \\cdot exp(im*φ) u = v cdot e^jφ complex voltage \nv v voltage magnitude absolute voltage\nφ phi voltage angle \ni_c = i \\cdot exp(im*δ) i_c = i cdot e^jdelta nodal complex current \ni i magnitude of the current \nδ delta angle of the current \ns = p + im*q s = p + jq complex power \np p real power active power\nq q imaginary power reactive power"
@@ -74,7 +82,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "language_conventions.html#List-of-modeling-conventions-1",
-    "page": "-",
+    "page": "Language & Conventions",
     "title": "List of modeling conventions",
     "category": "section",
     "text": "Counting of nodes starts at 1.\nRanges of nodes are mathematical, i.e. they include the first and the last element. For example sum_k=3^6 sums over 3, 4, 5, and 6.\nFor now, no selfadmittance is allowed, i.e. y_aa = 0 for all nodes a.\nThe admittance laplacian uses the following definition (convention from wikipedia)Y^L_ab = begincases\n  sum_c y_ac  textif  a=b \n  -y_ab  textotherwise\nendcasesThe nodal complex current is calculated asi_c_a = sum_b LY_ab u_b The complex power is calculated as (with ^* as complex comjucation)s_a = u_a cdot i_c_a^*"
