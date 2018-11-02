@@ -2,31 +2,39 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "index.html#",
-    "page": "PowerDynamics.jl",
-    "title": "PowerDynamics.jl",
+    "page": "General",
+    "title": "General",
     "category": "page",
-    "text": ""
+    "text": "(Image: Build Status) (Image: Chat on Slack.) (Image: Get your Slack invitation.) (Image: Code on Github.)"
 },
 
 {
     "location": "index.html#PowerDynamics.jl-Dynamic-Power-System-Analysis-in-Julia-1",
-    "page": "PowerDynamics.jl",
+    "page": "General",
     "title": "PowerDynamics.jl - Dynamic Power System Analysis in Julia",
     "category": "section",
-    "text": "This package provides all the tools you need to create a dynamic power grid model and analyze it."
+    "text": "This package provides all the tools you need to create a dynamic power grid model and analyze it.The source code is licensed under GPLv3 and published on github."
 },
 
 {
     "location": "index.html#Installation-1",
-    "page": "PowerDynamics.jl",
+    "page": "General",
     "title": "Installation",
     "category": "section",
-    "text": "For now install all the packages using git directly. Please be aware of the order and make sure you have access rights. They will be registered with the official package managers upon publishing.TBD: add new installation instructions"
+    "text": "The installation can be done via the new package manager. Either use]add PowerDynamicsor copyusing Pkg; Pkg.add(\"PowerDynamics\")Please note that PowerDynamics.jl is a fast developing library whose API is not settled yet. In order to ensure that your old code will still work in the future while using the latest version of PowerDynamics.jl for your new code, we strongly recommend the usage of environments. Please check out this video from the introduction of Pkg3, where environments are introduced, too."
+},
+
+{
+    "location": "index.html#Compatibility-1",
+    "page": "General",
+    "title": "Compatibility",
+    "category": "section",
+    "text": "PowerDynamics.jl is written for Julia 1.0 and above. We will quickly switch to new Julia version as they come out, but support older Versions and enable long transition periods for users. Julia Version 0.x are not supported."
 },
 
 {
     "location": "index.html#Usage-1",
-    "page": "PowerDynamics.jl",
+    "page": "General",
     "title": "Usage",
     "category": "section",
     "text": "Generally, we distinguish three types of user for PowerDynamics.jl:Grid Modeler\nGrid Component Developer\nPowerDynamics.jl Developer"
@@ -34,7 +42,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "index.html#Grid-Modeler-1",
-    "page": "PowerDynamics.jl",
+    "page": "General",
     "title": "Grid Modeler",
     "category": "section",
     "text": "Your Goal is to use PowerDynamics.jl to model your grid of preference. You don\'t want to implement new types of nodes.We recommend you to choose your favorite example from PowerDynamicsExamples, read Node Types and try to understand it. That should give you the kickstart you need. If you have any questions, contact us."
@@ -42,7 +50,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "index.html#Grid-Component-Developer-1",
-    "page": "PowerDynamics.jl",
+    "page": "General",
     "title": "Grid Component Developer",
     "category": "section",
     "text": "Your Goal is to use PowerDynamics.jl to develop types of nodes, e.g. new control schemes for inverters or new descriptions of synchronous machines.After going through the introduction for a Grid Modeler, we recommend that you read through Node Dynamics Types and Custom Node Types and try to implement a new node type for an example grid. With that, you should have all the tools you need. If you have any questions, contact us."
@@ -50,7 +58,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "index.html#PowerDynamics.jl-Developer-1",
-    "page": "PowerDynamics.jl",
+    "page": "General",
     "title": "PowerDynamics.jl Developer",
     "category": "section",
     "text": "Your Goal is to extend PowerDynamics.jl with new fundamental functionalities.After going throught the introduction for a Grid Modeler and a Grid Component Developer, read through the code where hopefully all of this documentation will helpful for you. Afterwards, it\'s probably best to open an issue explainng the idea you want to implement and we can discuss how you can transform your idea into a pull request."
@@ -97,27 +105,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#Node-Dynamics-Types-1",
+    "location": "node_dynamics_types.html#PowerDynBase.OrdinaryNodeDynamics",
     "page": "Node Dynamics Types",
-    "title": "Node Dynamics Types",
-    "category": "section",
-    "text": "In this section, the implemented general types of node dynamics with the corresponding helper functions and constants are introduced. The documentation is done for each type below. The main types are:PowerDynBase.OrdinaryNodeDynamics\nPowerDynBase.OrdinaryNodeDynamicsWithMass"
-},
-
-{
-    "location": "node_dynamics_types.html#PowerDynBase.no_internal_differentials",
-    "page": "Node Dynamics Types",
-    "title": "PowerDynBase.no_internal_differentials",
-    "category": "constant",
-    "text": "A variable to be used when no internal differentials are present for a node dynamics type.\n\n\n\n\n\n"
-},
-
-{
-    "location": "node_dynamics_types.html#PowerDynBase.no_internal_masses",
-    "page": "Node Dynamics Types",
-    "title": "PowerDynBase.no_internal_masses",
-    "category": "constant",
-    "text": "A variable to be used when no internal masses are present for a node dynamics type.\n\n\n\n\n\n"
+    "title": "PowerDynBase.OrdinaryNodeDynamics",
+    "category": "type",
+    "text": "OrdinaryNodeDynamics(;rhs, n_int)\n\nThe type representing the dynamics of a node that is described via ODEs.\n\nEach node a has the complex voltage u and n real internal variables y_1 dots y_n, so it generally describes a system of ordinary differential equation as\n\nfracdu_adt = f_u(u_a i_c_a y_1 dots y_n) \nfracdy_akdt = f_k(u_a i_c_a y_1 dots y_n)quad forall k = 1 dots n\n\nf is represented by rhs field of OrdinaryNodeDynamics.\n\nthe general signature of rhs is\n\nrhs(dint_dt::AbstractVector,\n    u::Complex,\n    i::Complex,\n    int::AbstractVector,\n    t,\n    )::Complex\n\nInput\nu is the complex voltage u\ni is the complex current i\nint is the array of internal variables y_1 dots y_n\nt is the time t\nOutput\nthe (complex) return value describes fracdudt\nrhs writes values in dint_dt describing the left-hand side fracdy_1dt dots fracdy_ndt\n\n\n\n"
 },
 
 {
@@ -125,63 +117,15 @@ var documenterSearchIndex = {"docs": [
     "page": "Node Dynamics Types",
     "title": "PowerDynBase.OrdinaryNodeDynamicsWithMass",
     "category": "type",
-    "text": "OrdinaryNodeDynamicsWithMass(;rhs, n_int, m_u, m_int)\n\nThe type representing the dynamics of a node that is described via ODEs.\n\nEach node a has the complex voltage u and n (= n_int) real internal variables y_1 dots y_n, so it generally describes a system of ordinary differential equation with a voltage mass m_u and internal masses m^int_1 dots m^int_n as\n\nm_ufracdu_adt = f_u(u_a i_c_a y_1 dots y_n) \nm^int_kfracdy_akdt = f_k(u_a i_c_a y_1 dots y_n)quad forall k = 1 dots n\n\nAs we assume that all masses are binary (either 1, or 0), that means, one can implement semi-explicit differential algebraic equations with this node dynamics type.\n\nNo documentation found.\n\nMarkdown.@doc_str is a macro.\n\n# 1 method for macro \"@doc_str\":\n[1] @doc_str(__source__::LineNumberNode, __module__::Module, s::AbstractString, t...) in Markdown at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.0/Markdown/src/Markdown.jl:53\n\n\n\nThe binary masses are:\n\nm_u is the boolean value for m_u\nm_int is the array of boolean values for m^int_1 dots m^int_n\n\n\n\n"
+    "text": "OrdinaryNodeDynamicsWithMass(;rhs, n_int, m_u, m_int)\n\nThe type representing the dynamics of a node that is described via ODEs.\n\nEach node a has the complex voltage u and n (= n_int) real internal variables y_1 dots y_n, so it generally describes a system of ordinary differential equation with a voltage mass m_u and internal masses m^int_1 dots m^int_n as\n\nm_ufracdu_adt = f_u(u_a i_c_a y_1 dots y_n) \nm^int_kfracdy_akdt = f_k(u_a i_c_a y_1 dots y_n)quad forall k = 1 dots n\n\nAs we assume that all masses are binary (either 1, or 0), that means, one can implement semi-explicit differential algebraic equations with this node dynamics type. f is represented by rhs field of OrdinaryNodeDynamics.\n\nthe general signature of rhs is\n\nrhs(dint_dt::AbstractVector,\n    u::Complex,\n    i::Complex,\n    int::AbstractVector,\n    t,\n    )::Complex\n\nInput\nu is the complex voltage u\ni is the complex current i\nint is the array of internal variables y_1 dots y_n\nt is the time t\nOutput\nthe (complex) return value describes fracdudt\nrhs writes values in dint_dt describing the left-hand side fracdy_1dt dots fracdy_ndt\n\nThe binary masses are:\n\nm_u is the boolean value for m_u\nm_int is the array of boolean values for m^int_1 dots m^int_n\n\n\n\n"
 },
 
 {
-    "location": "node_dynamics_types.html#Base.convert-Tuple{Type{OrdinaryNodeDynamicsWithMass},OrdinaryNodeDynamics}",
+    "location": "node_dynamics_types.html#Node-Dynamics-Types-1",
     "page": "Node Dynamics Types",
-    "title": "Base.convert",
-    "category": "method",
-    "text": "convert(::Type{OrdinaryNodeDynamicsWithMass}, ::OrdinaryNodeDynamics)\n\nConversion of OrdinaryNodeDynamics to OrdinaryNodeDynamicsWithMass by assuming all masses are 1 (true).\n\n\n\n\n\n"
-},
-
-{
-    "location": "node_dynamics_types.html#Base.convert-Tuple{Type{PowerDynBase.AlgebraicNodeDynamics},OrdinaryNodeDynamicsWithMass}",
-    "page": "Node Dynamics Types",
-    "title": "Base.convert",
-    "category": "method",
-    "text": "convert(::Type{AlgebraicNodeDynamics}, ::OrdinaryNodeDynamicsWithMass)\n\nConversion of OrdinaryNodeDynamicsWithMass to AlgebraicNodeDynamics by transforming a RHS function into a root function.\n\n\n\n\n\n"
-},
-
-{
-    "location": "node_dynamics_types.html#Base.convert-Tuple{Type{PowerDynBase.AlgebraicNodeDynamics},OrdinaryNodeDynamics}",
-    "page": "Node Dynamics Types",
-    "title": "Base.convert",
-    "category": "method",
-    "text": "convert(::Type{AlgebraicNodeDynamics}, ::OrdinaryNodeDynamics)\n\nConversion of OrdinaryNodeDynamics to AlgebraicNodeDynamics by going via OrdinaryNodeDynamicsWithMass.\n\n\n\n\n\n"
-},
-
-{
-    "location": "node_dynamics_types.html#Base.promote_rule-Tuple{Type{#s25} where #s25<:OrdinaryNodeDynamics,Type{#s24} where #s24<:OrdinaryNodeDynamicsWithMass}",
-    "page": "Node Dynamics Types",
-    "title": "Base.promote_rule",
-    "category": "method",
-    "text": "promote_rule(::Type{OrdinaryNodeDynamics}, ::Type{OrdinaryNodeDynamicsWithMass}) = OrdinaryNodeDynamicsWithMass\n\nOrdinaryNodeDynamics can be promoted to OrdinaryNodeDynamicsWithMass, see DPSABase.convert.\n\n\n\n\n\n"
-},
-
-{
-    "location": "node_dynamics_types.html#Base.promote_rule-Tuple{Type{OrdinaryNodeDynamicsWithMass},Type{PowerDynBase.AlgebraicNodeDynamics}}",
-    "page": "Node Dynamics Types",
-    "title": "Base.promote_rule",
-    "category": "method",
-    "text": "promote_rule(::Type{OrdinaryNodeDynamicsWithMass}, ::Type{AlgebraicNodeDynamics}) = AlgebraicNodeDynamics\n\nOrdinaryNodeDynamicsWithMass can be promoted to AlgebraicNodeDynamics, see DPSABase.convert.\n\n\n\n\n\n"
-},
-
-{
-    "location": "node_dynamics_types.html#Base.promote_rule-Tuple{Type{OrdinaryNodeDynamics},Type{PowerDynBase.AlgebraicNodeDynamics}}",
-    "page": "Node Dynamics Types",
-    "title": "Base.promote_rule",
-    "category": "method",
-    "text": "promote_rule(::Type{OrdinaryNodeDynamics}, ::Type{AlgebraicNodeDynamics}) = AlgebraicNodeDynamics\n\nOrdinaryNodeDynamics can be promoted to AlgebraicNodeDynamics, see DPSABase.convert.\n\n\n\n\n\n"
-},
-
-{
-    "location": "node_dynamics_types.html#Documentation-1",
-    "page": "Node Dynamics Types",
-    "title": "Documentation",
+    "title": "Node Dynamics Types",
     "category": "section",
-    "text": "Modules = [PowerDynBase]\nPages   = [\"NodeDynamicsBase.jl\"]"
+    "text": "In this section, the implemented general types of node dynamics with the corresponding helper functions and constants are introduced. The documentation is done for each type below. The main types are:PowerDynBase.OrdinaryNodeDynamics\nPowerDynBase.OrdinaryNodeDynamicsWithMassPowerDynBase.OrdinaryNodeDynamics\nPowerDynBase.OrdinaryNodeDynamicsWithMass"
 },
 
 {
@@ -193,11 +137,75 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "node_types.html#PowerDynBase.PQAlgebraic",
+    "page": "Node Types",
+    "title": "PowerDynBase.PQAlgebraic",
+    "category": "type",
+    "text": "PQAlgebraic(;S)\n\nA node type that locally fixes the active (P) and reactive power (Q) output of the node.\n\nKeyword Arguments\n\nS = P + Q*im: the complex power output\n\nMathematical Representation\n\nUsing PQAlgebraic for node a applies the equation\n\n0 = S_a - u_a cdot i_a^*\n\n\n\n"
+},
+
+{
+    "location": "node_types.html#PowerDynBase.PVAlgebraic",
+    "page": "Node Types",
+    "title": "PowerDynBase.PVAlgebraic",
+    "category": "type",
+    "text": "PVAlgebraic(;P,V)\n\nA node type that locally fixes the active power (P) and the voltage magnitude (V) of the node.\n\nKeyword Arguments\n\nP: the active (real) power output\nV: voltage magnitude\n\nMathematical Representation\n\nUsing PVAlgebraic for node a applies the equations\n\n0 = P_a - Releft(u_a cdot i_a^*right) \n0 = V_a - leftu_aright\n\n\n\n"
+},
+
+{
+    "location": "node_types.html#PowerDynBase.SlackAlgebraic",
+    "page": "Node Types",
+    "title": "PowerDynBase.SlackAlgebraic",
+    "category": "type",
+    "text": "SlackAlgebraic(;U)\n\nA node type that locally fixes the complex voltage (U) of the node.\n\nAs the complex voltage can be represented as U=Ve^iphi, this is equivlant to fixing the voltage magnitude V and the angle phi.\n\nKeyword Arguments\n\nU: the complex voltage\n\nMathematical Representation\n\nUsing SlackAlgebraic for node a applies the equation\n\n0 = U_a - u_a\n\n\n\n"
+},
+
+{
+    "location": "node_types.html#PowerDynBase.SwingEq",
+    "page": "Node Types",
+    "title": "PowerDynBase.SwingEq",
+    "category": "type",
+    "text": "SwingEq(;H, P, D, Ω)\n\nA node type that applies the swing equation to the frequency/angle dynamics and keeps the voltage magnitude as is.\n\nAdditionally to u, it has the internal dynamic variable omega representing the frequency of the rotator relative to the grid frequency Omega, i.e. the real frequency omega_r of the rotator is given as omega_r = Omega + omega.\n\nKeyword Arguments\n\nH: inertia\nP: active (real) power output\nD: damping coefficient\nΩ: rated frequency of the power grid, often 50Hz\n\nMathematical Representation\n\nUsing SwingEq for node a applies the equations\n\nfracdu_adt = i u_a  omega_a \nfracH2piOmegafracdomega_adt = P_a - D_aomega_a - Releft(u_a cdot i_a^*right)\n\nwhich is equivalent to\n\nfracdphi_adt = omega \nv = v(t=0) = textconst \nfracH2piOmegafracdomega_adt = P_a - D_aomega_a - Releft(u_a cdot i_a^*right)\n\n\n\n"
+},
+
+{
+    "location": "node_types.html#PowerDynBase.SwingEqLVS",
+    "page": "Node Types",
+    "title": "PowerDynBase.SwingEqLVS",
+    "category": "type",
+    "text": "SwingEqLVS(;H, P, D, Ω, Γ, V)\n\nA node type that applies the swing equation to the frequency/angle dynamics and has a linear voltage stability (LVS) term.\n\nAdditionally to u, it has the internal dynamic variable omega representing the frequency of the rotator relative to the grid frequency Omega, i.e. the real frequency omega_r of the rotator is given as omega_r = Omega + omega.\n\nKeyword Arguments\n\nH: inertia\nP: active (real) power output\nD: damping coefficient\nΩ: rated frequency of the power grid, often 50Hz\nΓ: voltage stability coefficient\nV: set voltage, usually 1\n\nMathematical Representation\n\nUsing SwingEq for node a applies the equations\n\nfracdu_adt = i u_a omega - fracuu Γ_a  (v_a - V_a) \nfracH2piOmegafracdomega_adt = P_a - D_aomega_a - Releft(u_a cdot i_a^*right)\n\nwhich is equivalent to\n\nfracdphi_adt = omega_a \nfracdv_adt = - Γ_a  (v_a - V_a) \nfracH2piOmegafracdomega_adt = P_a - D_aomega_a - Releft(u_a cdot i_a^*right)\n\n\n\n"
+},
+
+{
+    "location": "node_types.html#PowerDynBase.FourthEq",
+    "page": "Node Types",
+    "title": "PowerDynBase.FourthEq",
+    "category": "type",
+    "text": "SwingEq(;H, P, D, Ω)\n\nA node type that applies the swing equation to the frequency/angle dynamics and keeps the voltage magnitude as is.\n\nAdditionally to u, it has the internal dynamic variable omega representing the frequency of the rotator relative to the grid frequency Omega, i.e. the real frequency omega_r of the rotator is given as omega_r = Omega + omega.\n\nKeyword Arguments\n\nH: inertia\nP: active (real) power output\nD: damping coefficient\nΩ: rated frequency of the power grid, often 50Hz\nT_d_dash: time constant of d-axis\nT_q_dash: time constant of q-axis\nX_d_dash: transient reactance of d-axis\nX_q_dash: transient reactance of q-axis\nX_d: reactance of d-axis\nX_d: reactance of q-axis\n\nMathematical Representation\n\nUsing FourthEq for node a applies the equations\n\nbeginalign\n    u = -je_c e^jtheta = -j(e_d + je_q)e^jtheta\n    e_c= e_d + je_q = jue^-jtheta\n    i  = -jie^jtheta = -j(i_d+ j i_q )e^jtheta = Y^L cdot (u) \n    i_c= i_d + ji_q = jie^-jtheta\n    p = Re (i^* u)\nendalign\nThe fourth-order equations read (according to Sauer p 140 eqs (6110)-(6114)) and p 35 eqs(390)-(391)\nbeginalign\n    fracdthetadt = omega \n     fracdomegadt = P-Domega - p -(x_q-x_d)i_d i_q\n    fracd e_qdt = frac1T_d (- e_q - (x_d - x_d) i_d+ e_f) \n    fracd e_ddt = frac1T_q (- e_d + (x_q - x_q) i_q)  \nendalign\nWith the PowerDynamicsjl timenaming conventions of i and u they read as\nbeginalign\n   dot u = fracddt(-j e_c e^jtheta)=-j(dot e_d + jdot e_q)e^jtheta + ujomega\nendalign\n\n\n\n"
+},
+
+{
+    "location": "node_types.html#PowerDynBase.VSIMinimal",
+    "page": "Node Types",
+    "title": "PowerDynBase.VSIMinimal",
+    "category": "type",
+    "text": "VSIMinimal(;τ_P,τ_Q,K_P,K_Q,E_r,P,Q)\n\nA node type that applies the frequency and voltage droop control to control the frequency and voltage dynamics.\n\nAdditionally to u, it has the internal dynamic variable omega representing the frequency of the rotator relative to the grid frequency Omega, i.e. the real frequency omega_r of the rotator is given as omega_r = Omega + omega.\n\nKeyword Arguments\n\nτ_p: time constant active power measurement\nτ_Q: time constant reactive power measurement\nK_P: droop constant frequency droop\nK_Q: droop constant voltage droop\nV_r: reference/ desired voltage\nP: active (real) power infeed\nQ: reactive (imag) power infeed\n\nMathematical Representation\n\nUsing VSIMinimal for node a applies the equations\n\ndotphi_a=omega_a\n dotomega_a=frac1tau_Pa-omega_a-K_Pa (Releft(u_a cdot i_a^*right)-P_refa)\ntau_Qdotv_a=-v_a+V_ref-K_Qa (Imleft(u_a cdot i_a^*right)-Q_refa)\n dotu_a=dotv_ae^jphi+jomega_a u_a\n\n```\n\n\n\n"
+},
+
+{
+    "location": "node_types.html#PowerDynBase.VSIVoltagePT1",
+    "page": "Node Types",
+    "title": "PowerDynBase.VSIVoltagePT1",
+    "category": "type",
+    "text": "VSIVoltagePT1(;τ_v,τ_P,τ_Q,K_P,K_Q,E_r,P,Q)\n\nA node type that applies the frequency and voltage droop control to control the frequency and voltage dynamics.\n\nAdditionally to u, it has the internal dynamic variable omega representing the frequency of the rotator relative to the grid frequency Omega, i.e. the real frequency omega_r of the rotator is given as omega_r = Omega + omega.\n\nKeyword Arguments\n\nτ_v: time constant voltage control delay\nτ_p: time constant active power measurement\nτ_Q: time constant reactive power measurement\nK_P: droop constant frequency droop\nK_Q: droop constant voltage droop\nV_r: reference/ desired voltage\nP: active (real) power infeed\nQ: reactive (imag) power infeed\n\nMathematical Representation\n\nUsing VSIVoltagePT1 for node a applies the equations\n\ndotphi_a=omega_a\n dotomega_a=frac1tau_Pa-omega_a-K_Pa (Releft(u_a cdot i_a^*right)-P_refa)\n tau_vdotv_a=-v_a+V_ref-K_Qa(q_ma-Q_refa)\n tau_Q dotq_ma=-q_ma+Imleft(u_a cdot i_a^*right)\n dotu_a=dotv_ae^jphi+jomega_a u_a\n\n\n\n"
+},
+
+{
     "location": "node_types.html#Node-Types-1",
     "page": "Node Types",
     "title": "Node Types",
     "category": "section",
-    "text": "Modules = [PowerDynBase]\nPages   = [\"NodeDynamics/PQAlgebraic.jl\", \"NodeDynamics/PVAlgebraic.jl\", \"NodeDynamics/SlackAlgebraic.jl\", \"NodeDynamics/SwingEquation.jl\"]"
+    "text": "The currently implementes node types arePurely Algebraic:\nPowerDynBase.PQAlgebraic (PQ-bus)\nPowerDynBase.PVAlgebraic (PV-bus)\nPowerDynBase.SlackAlgebraic (Slack-bus / Vφ-bus)\nSynchronous Machine Models:\nPowerDynBase.SwingEq (2nd order)\nPowerDynBase.SwingEqLVS (2nd order with an additional term for numerical voltage stability)\nPowerDynBase.FourthEq (4th order)\nVoltage Source Inverters:\nPowerDynBase.VSIMinimal\nPowerDynBase.VSIVoltagePT1PQAlgebraic\nPVAlgebraic\nSlackAlgebraic\nSwingEq\nSwingEqLVS\nFourthEq\nVSIMinimal\nVSIVoltagePT1"
 },
 
 {
@@ -241,11 +249,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "error_types.html#PowerDynBase.GridDynamicsError",
+    "location": "error_types.html#PowerDynBase.PowerDynamicsError",
     "page": "Error Types",
-    "title": "PowerDynBase.GridDynamicsError",
+    "title": "PowerDynBase.PowerDynamicsError",
     "category": "type",
-    "text": "Error to be thrown if something goes wrong during the grid dynamics construction.\n\n\n\n\n\n"
+    "text": "Abstract super type of all PowerDynamics.jl Errors.\n\n\n\n\n\n"
 },
 
 {
@@ -257,6 +265,14 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "error_types.html#PowerDynBase.GridDynamicsError",
+    "page": "Error Types",
+    "title": "PowerDynBase.GridDynamicsError",
+    "category": "type",
+    "text": "Error to be thrown if something goes wrong during the grid dynamics construction.\n\n\n\n\n\n"
+},
+
+{
     "location": "error_types.html#PowerDynBase.StateError",
     "page": "Error Types",
     "title": "PowerDynBase.StateError",
@@ -265,315 +281,19 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "error_types.html#PowerDynSolve.GridSolutionError",
+    "page": "Error Types",
+    "title": "PowerDynSolve.GridSolutionError",
+    "category": "type",
+    "text": "Error to be thrown if something goes wrong during when solving a power grid model.\n\n\n\n\n\n"
+},
+
+{
     "location": "error_types.html#Error-Types-1",
     "page": "Error Types",
     "title": "Error Types",
     "category": "section",
-    "text": "Modules = [PowerDynBase]\nPages   = [\"Errors.jl\"]"
-},
-
-{
-    "location": "internalsBase.html#",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.jl",
-    "category": "page",
-    "text": ""
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.AbstractAlgebraicGridDynamics",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.AbstractAlgebraicGridDynamics",
-    "category": "type",
-    "text": "Abstract super type for all grid dynamics represented by DAEs.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.AbstractAlgebraicNodeDynamics",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.AbstractAlgebraicNodeDynamics",
-    "category": "type",
-    "text": "Abstract super type for all node dynamics represented by DAEs.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.AbstractDAEVariable",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.AbstractDAEVariable",
-    "category": "type",
-    "text": "Abstract super type for all Variables for DAE-type node dynamics.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.AbstractDEVariable",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.AbstractDEVariable",
-    "category": "type",
-    "text": "Abstract super type for all variables that AbstractNodeDynamics sub types can be called with.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.AbstractNetworkFunction",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.AbstractNetworkFunction",
-    "category": "type",
-    "text": "abstract type AbstractNetworkFunction{T<:AbstractNodeDynamics, M<:AbstractMatrix} end\n\nAbstract super type of all functions that define how a differential equation for the whole network / power grid behaves, e.g. the full right-hand-side function of the ODE.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.AbstractNodeDynamics",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.AbstractNodeDynamics",
-    "category": "type",
-    "text": "Abstract super type for all abstract node dynamics types.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.AbstractODEVariable",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.AbstractODEVariable",
-    "category": "type",
-    "text": "Abstract super type for all Variables for ODE-type node dynamics.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.AbstractOrdinaryGridDynamics",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.AbstractOrdinaryGridDynamics",
-    "category": "type",
-    "text": "Abstract super type for all grid dynamics represented by ODEs.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.AbstractOrdinaryNodeDynamics",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.AbstractOrdinaryNodeDynamics",
-    "category": "type",
-    "text": "Abstract super type for all node dynamics represented by ODEs.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.AlgebraicGridDynamics",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.AlgebraicGridDynamics",
-    "category": "type",
-    "text": "TBD\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.AlgebraicNodeDynamics",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.AlgebraicNodeDynamics",
-    "category": "type",
-    "text": "DOCS TBD!\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.BaseState",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.BaseState",
-    "category": "type",
-    "text": "\n    BaseState(grid, vec)\n\n\nEncode a state vector and the corresponding rhs information.\n\nKeyword Arguments\n\ngrid is a GridDynamics instance that contains the overall system rhs.\nvec is a state vector of the system who\'s length is given by the total       number of internal and voltage variables.\n\nIndexing\n\nIn an instance b of of a BaseState behaves like an Array, i.e. you can access the j-th element of the state vector (and set it to a value ξ) by calling b[j] ( = ξ ).\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.DAEVariable",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.DAEVariable",
-    "category": "type",
-    "text": "Variables for DAE-type node dynamics.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.ODEVariable",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.ODEVariable",
-    "category": "type",
-    "text": "Variables for ODE-type node dynamics.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.OrdinaryGridDynamics",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.OrdinaryGridDynamics",
-    "category": "type",
-    "text": "TBD\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.OrdinaryGridDynamicsWithMass",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.OrdinaryGridDynamicsWithMass",
-    "category": "type",
-    "text": "TBD\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#Base.view-Tuple{PowerDynBase.AbstractDEVariable,Any}",
-    "page": "PowerDynBase.jl",
-    "title": "Base.view",
-    "category": "method",
-    "text": "Extend view from arrays to subtypes of AbstractDEVariable.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.DynamicNode-NTuple{4,Any}",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.DynamicNode",
-    "category": "method",
-    "text": "See DPSABase.@DynamicNode.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase._GridDynamics-Tuple{AbstractArray{#s30,1} where #s30<:OrdinaryNodeDynamics,AbstractArray{T,2} where T}",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase._GridDynamics",
-    "category": "method",
-    "text": "Create for each subtype of DPSABase.AbstractNodeDynamics the corresponding subtype of DPSABase.GridDynamics.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.checkLY-Tuple{AbstractArray{T,2} where T}",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.checkLY",
-    "category": "method",
-    "text": "Check whether the admittance laplacian has no purely nodal admittances, i.e. that the sum of columns and rows equals to zero.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.complexview-Tuple{PowerDynBase.AbstractDEVariable,Any,Any}",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.complexview",
-    "category": "method",
-    "text": "Extend complexview from arrays to subtypes of AbstractDEVariable.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.complexview-Union{Tuple{T}, Tuple{AbstractArray{T,N} where N,Any,Any}} where T",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.complexview",
-    "category": "method",
-    "text": "Interpret (part of) an array of real values as an array with complex values.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.create_DEVariable-Tuple{Any,Symbol}",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.create_DEVariable",
-    "category": "method",
-    "text": "Basically, this macro generates all the constructors (internal and external) for a subtype of AbstracDEVariable.\n\nIf you really want to understand this macro, uncomment the println(ex) statement at the end and check the resulting generated expression.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.excomparison-Tuple{Any}",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.excomparison",
-    "category": "method",
-    "text": "Create an expresseion where == is applied between all the expressions given as argument here.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.getDEVariableType-Tuple{Type{Val{OrdinaryNodeDynamics}}}",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.getDEVariableType",
-    "category": "method",
-    "text": "Identify each subtype of AbstractNodeDynamics with its corresponding subtype of AbstractDEVariable\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.internal_unitranges-Tuple{AbstractArray{#s30,1} where #s30<:PowerDynBase.AbstractNodeDynamics}",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.internal_unitranges",
-    "category": "method",
-    "text": "Get the unit ranges that indicate where in the array the internal variables for each of the nodes is saved.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.mapfields-Tuple{Any,Any,Vararg{Any,N} where N}",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.mapfields",
-    "category": "method",
-    "text": "function mapfields(f, s, args...)\n\nApplies f to all fields of (the struct) s giving args... as additional arguments.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.nint-Tuple{OrdinaryNodeDynamics}",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.nint",
-    "category": "method",
-    "text": "Get number of internal arguments of the node.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.nodeiterator-Tuple{NetworkRHS,PowerDynBase.AbstractDEVariable,Any}",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.nodeiterator",
-    "category": "method",
-    "text": "nodeiterator(rhs::NetworkRHS, x::AbstractDEVariable, t)\n\nDistribute the values in x over all the nodes that are summarized in rhs.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.rhs2root-Tuple{Function}",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.rhs2root",
-    "category": "method",
-    "text": "A function converting a rhs-type function to a root-type function.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.total_nint-Tuple{AbstractArray{#s30,1} where #s30<:PowerDynBase.AbstractNodeDynamics}",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.total_nint",
-    "category": "method",
-    "text": "Get the total number of internal variables for an array of node dynamics.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.total_nvars-Tuple{AbstractArray{#s30,1} where #s30<:PowerDynBase.AbstractNodeDynamics}",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.total_nvars",
-    "category": "method",
-    "text": "Get the total number of dynamic variables for an array of node dynamics.\n\nThis is basically the (real) dimension of the system, hence the sum of internal dynamic variables + 2*(number of nodes = number of complex voltages). The 2 is due to the fact that the complex voltages are treated as two real variables.\n\n\n\n\n\n"
-},
-
-{
-    "location": "internalsBase.html#PowerDynBase.jl-1",
-    "page": "PowerDynBase.jl",
-    "title": "PowerDynBase.jl",
-    "category": "section",
-    "text": "Modules = [PowerDynBase]\nPublic = false"
-},
-
-{
-    "location": "internalsSolve.html#",
-    "page": "PowerDynSolve.jl",
-    "title": "PowerDynSolve.jl",
-    "category": "page",
-    "text": ""
-},
-
-{
-    "location": "internalsSolve.html#PowerDynSolve.jl-1",
-    "page": "PowerDynSolve.jl",
-    "title": "PowerDynSolve.jl",
-    "category": "section",
-    "text": "PowerDynSolve.jl is just a helper library for solving a differential equation system created with PowerDynamics.jl. Documentation will come after after stabilization of the api.Modules = [PowerDynSolve]\nPublic = false"
-},
-
-{
-    "location": "fullindex.html#",
-    "page": "Index",
-    "title": "Index",
-    "category": "page",
-    "text": ""
-},
-
-{
-    "location": "fullindex.html#Index-1",
-    "page": "Index",
-    "title": "Index",
-    "category": "section",
-    "text": ""
+    "text": "PowerDynBase.PowerDynamicsError\nPowerDynBase.NodeDynamicsError\nPowerDynBase.GridDynamicsError\nPowerDynBase.StateError\nPowerDynSolve.GridSolutionError"
 },
 
 {
@@ -581,7 +301,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Contact",
     "title": "Contact",
     "category": "page",
-    "text": ""
+    "text": "(Image: Build Status) (Image: Chat on Slack.) (Image: Get your Slack invitation.) (Image: Code on Github.)"
 },
 
 {
@@ -589,7 +309,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Contact",
     "title": "Contact",
     "category": "section",
-    "text": "In case of questions simply submit an issue on gitlab. I you don\'t want to contact us publicly, send an email to Tim Kittel (tim.kittel@elena-international.com) or Sabine Auer (sabine.auer@elena-international.com)."
+    "text": "In case of questions, please submit an issue on github or ask on our slack channel (get your invitation here).If you don\'t want to contact us publicly, send an email to Tim Kittel (tim.kittel@elena-international.com) or Sabine Auer (sabine.auer@elena-international.com)."
 },
 
 ]}
