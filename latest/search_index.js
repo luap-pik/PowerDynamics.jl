@@ -13,7 +13,7 @@ var documenterSearchIndex = {"docs": [
     "page": "General",
     "title": "PowerDynamics.jl - Dynamic Power System Analysis in Julia",
     "category": "section",
-    "text": "This package provides all the tools you need to create a dynamic power grid model and analyze it.The source code is licensed under GPLv3 and published on github.These Docs have been built with the following version of the sub-packages:using Pkg\nenv = Pkg.Types.EnvCache()\nsubpackages = copy(env.project[\"deps\"])\npop!(subpackages, \"Reexport\") # ignore Reexport here\nuuids = map(Base.UUID, values(subpackages))\nfunction printversions()\n  for uuid in uuids\n    pkg = Pkg.Types.manifest_info(env, uuid)\n    println(rpad(\" * $(pkg[\"name\"]) \", 30, \".\"), \" $(pkg[\"version\"])\")\n  end\nendprintversions() # hide"
+    "text": "This package provides all the tools you need to create a dynamic power grid model and analyze it.The source code is licensed under GPLv3 and published on github.These Docs have been built with the following version of the sub-packages:using Pkg\nenv = Pkg.Types.EnvCache()\nsubpackages = copy(env.project[\"deps\"])\npop!(subpackages, \"Reexport\") # ignore Reexport here\nif haskey(subpackages, \"Documenter\")\n  pop!(subpackages, \"Documenter\") # ignore Documenter here\nend\nuuids = map(Base.UUID, values(subpackages))\nfunction printversions()\n  for uuid in uuids\n    pkg = Pkg.Types.manifest_info(env, uuid)\n    println(rpad(\" * $(pkg[\"name\"]) \", 30, \".\"), \" $(pkg[\"version\"])\")\n  end\nendprintversions() # hide"
 },
 
 {
