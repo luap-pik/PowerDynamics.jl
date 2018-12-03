@@ -1,7 +1,7 @@
 var documenterSearchIndex = {"docs": [
 
 {
-    "location": "index.html#",
+    "location": "#",
     "page": "General",
     "title": "General",
     "category": "page",
@@ -9,7 +9,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "index.html#PowerDynamics.jl-Dynamic-Power-System-Analysis-in-Julia-1",
+    "location": "#PowerDynamics.jl-Dynamic-Power-System-Analysis-in-Julia-1",
     "page": "General",
     "title": "PowerDynamics.jl - Dynamic Power System Analysis in Julia",
     "category": "section",
@@ -17,7 +17,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "index.html#Installation-1",
+    "location": "#Installation-1",
     "page": "General",
     "title": "Installation",
     "category": "section",
@@ -25,7 +25,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "index.html#Compatibility-1",
+    "location": "#Compatibility-1",
     "page": "General",
     "title": "Compatibility",
     "category": "section",
@@ -33,7 +33,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "index.html#Usage-1",
+    "location": "#Usage-1",
     "page": "General",
     "title": "Usage",
     "category": "section",
@@ -41,7 +41,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "index.html#Grid-Modeler-1",
+    "location": "#Grid-Modeler-1",
     "page": "General",
     "title": "Grid Modeler",
     "category": "section",
@@ -49,7 +49,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "index.html#Grid-Component-Developer-1",
+    "location": "#Grid-Component-Developer-1",
     "page": "General",
     "title": "Grid Component Developer",
     "category": "section",
@@ -57,7 +57,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "index.html#PowerDynamics.jl-Developer-1",
+    "location": "#PowerDynamics.jl-Developer-1",
     "page": "General",
     "title": "PowerDynamics.jl Developer",
     "category": "section",
@@ -65,7 +65,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "language_conventions.html#",
+    "location": "language_conventions/#",
     "page": "Language & Conventions",
     "title": "Language & Conventions",
     "category": "page",
@@ -73,7 +73,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "language_conventions.html#Language-and-Conventions-1",
+    "location": "language_conventions/#Language-and-Conventions-1",
     "page": "Language & Conventions",
     "title": "Language & Conventions",
     "category": "section",
@@ -81,7 +81,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "language_conventions.html#List-of-symbols-and-corresponding-names-1",
+    "location": "language_conventions/#List-of-symbols-and-corresponding-names-1",
     "page": "Language & Conventions",
     "title": "List of symbols and corresponding names",
     "category": "section",
@@ -89,7 +89,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "language_conventions.html#List-of-modeling-conventions-1",
+    "location": "language_conventions/#List-of-modeling-conventions-1",
     "page": "Language & Conventions",
     "title": "List of modeling conventions",
     "category": "section",
@@ -97,7 +97,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#",
+    "location": "node_dynamics_types/#",
     "page": "Dynamics Types",
     "title": "Dynamics Types",
     "category": "page",
@@ -105,7 +105,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#Dynamics-Types-1",
+    "location": "node_dynamics_types/#Dynamics-Types-1",
     "page": "Dynamics Types",
     "title": "Dynamics Types",
     "category": "section",
@@ -113,7 +113,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#PowerDynBase.AbstractNodeDynamics",
+    "location": "node_dynamics_types/#PowerDynBase.AbstractNodeDynamics",
     "page": "Dynamics Types",
     "title": "PowerDynBase.AbstractNodeDynamics",
     "category": "type",
@@ -121,7 +121,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#PowerDynBase.OrdinaryNodeDynamics",
+    "location": "node_dynamics_types/#PowerDynBase.OrdinaryNodeDynamics",
     "page": "Dynamics Types",
     "title": "PowerDynBase.OrdinaryNodeDynamics",
     "category": "type",
@@ -129,7 +129,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#PowerDynBase.OrdinaryNodeDynamicsWithMass",
+    "location": "node_dynamics_types/#PowerDynBase.OrdinaryNodeDynamicsWithMass",
     "page": "Dynamics Types",
     "title": "PowerDynBase.OrdinaryNodeDynamicsWithMass",
     "category": "type",
@@ -137,7 +137,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#Node-Dynamics-1",
+    "location": "node_dynamics_types/#Node-Dynamics-1",
     "page": "Dynamics Types",
     "title": "Node Dynamics",
     "category": "section",
@@ -145,7 +145,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#PowerDynBase.internalsymbolsof",
+    "location": "node_dynamics_types/#PowerDynBase.internalsymbolsof",
     "page": "Dynamics Types",
     "title": "PowerDynBase.internalsymbolsof",
     "category": "function",
@@ -153,7 +153,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#Helper-Functions-1",
+    "location": "node_dynamics_types/#Helper-Functions-1",
     "page": "Dynamics Types",
     "title": "Helper Functions",
     "category": "section",
@@ -161,7 +161,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#PowerDynBase.GridDynamics",
+    "location": "node_dynamics_types/#PowerDynBase.GridDynamics",
     "page": "Dynamics Types",
     "title": "PowerDynBase.GridDynamics",
     "category": "type",
@@ -169,7 +169,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#PowerDynBase.OrdinaryGridDynamics",
+    "location": "node_dynamics_types/#PowerDynBase.OrdinaryGridDynamics",
     "page": "Dynamics Types",
     "title": "PowerDynBase.OrdinaryGridDynamics",
     "category": "type",
@@ -177,7 +177,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#PowerDynBase.OrdinaryGridDynamicsWithMass",
+    "location": "node_dynamics_types/#PowerDynBase.OrdinaryGridDynamicsWithMass",
     "page": "Dynamics Types",
     "title": "PowerDynBase.OrdinaryGridDynamicsWithMass",
     "category": "type",
@@ -185,7 +185,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#PowerDynBase.AlgebraicGridDynamics",
+    "location": "node_dynamics_types/#PowerDynBase.AlgebraicGridDynamics",
     "page": "Dynamics Types",
     "title": "PowerDynBase.AlgebraicGridDynamics",
     "category": "type",
@@ -193,7 +193,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#Grid-Dynamics-1",
+    "location": "node_dynamics_types/#Grid-Dynamics-1",
     "page": "Dynamics Types",
     "title": "Grid Dynamics",
     "category": "section",
@@ -201,7 +201,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#PowerDynBase.NetworkRHS",
+    "location": "node_dynamics_types/#PowerDynBase.NetworkRHS",
     "page": "Dynamics Types",
     "title": "PowerDynBase.NetworkRHS",
     "category": "type",
@@ -209,7 +209,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#NetworkRHS-1",
+    "location": "node_dynamics_types/#NetworkRHS-1",
     "page": "Dynamics Types",
     "title": "NetworkRHS",
     "category": "section",
@@ -217,7 +217,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_dynamics_types.html#Helper-Functions-2",
+    "location": "node_dynamics_types/#Helper-Functions-2",
     "page": "Dynamics Types",
     "title": "Helper Functions",
     "category": "section",
@@ -225,7 +225,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_types.html#",
+    "location": "node_types/#",
     "page": "Node Types",
     "title": "Node Types",
     "category": "page",
@@ -233,7 +233,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_types.html#PowerDynBase.AbstractNodeParameters",
+    "location": "node_types/#PowerDynBase.AbstractNodeParameters",
     "page": "Node Types",
     "title": "PowerDynBase.AbstractNodeParameters",
     "category": "type",
@@ -241,7 +241,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_types.html#PowerDynBase.PQAlgebraic",
+    "location": "node_types/#PowerDynBase.PQAlgebraic",
     "page": "Node Types",
     "title": "PowerDynBase.PQAlgebraic",
     "category": "type",
@@ -249,7 +249,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_types.html#PowerDynBase.PVAlgebraic",
+    "location": "node_types/#PowerDynBase.PVAlgebraic",
     "page": "Node Types",
     "title": "PowerDynBase.PVAlgebraic",
     "category": "type",
@@ -257,7 +257,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_types.html#PowerDynBase.SlackAlgebraic",
+    "location": "node_types/#PowerDynBase.SlackAlgebraic",
     "page": "Node Types",
     "title": "PowerDynBase.SlackAlgebraic",
     "category": "type",
@@ -265,7 +265,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_types.html#PowerDynBase.SwingEq",
+    "location": "node_types/#PowerDynBase.SwingEq",
     "page": "Node Types",
     "title": "PowerDynBase.SwingEq",
     "category": "type",
@@ -273,7 +273,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_types.html#PowerDynBase.SwingEqLVS",
+    "location": "node_types/#PowerDynBase.SwingEqLVS",
     "page": "Node Types",
     "title": "PowerDynBase.SwingEqLVS",
     "category": "type",
@@ -281,7 +281,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_types.html#PowerDynBase.FourthEq",
+    "location": "node_types/#PowerDynBase.FourthEq",
     "page": "Node Types",
     "title": "PowerDynBase.FourthEq",
     "category": "type",
@@ -289,7 +289,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_types.html#PowerDynBase.VSIMinimal",
+    "location": "node_types/#PowerDynBase.VSIMinimal",
     "page": "Node Types",
     "title": "PowerDynBase.VSIMinimal",
     "category": "type",
@@ -297,7 +297,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_types.html#PowerDynBase.VSIVoltagePT1",
+    "location": "node_types/#PowerDynBase.VSIVoltagePT1",
     "page": "Node Types",
     "title": "PowerDynBase.VSIVoltagePT1",
     "category": "type",
@@ -305,7 +305,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_types.html#Node-Types-1",
+    "location": "node_types/#Node-Types-1",
     "page": "Node Types",
     "title": "Node Types",
     "category": "section",
@@ -313,7 +313,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "custom_node_types.html#",
+    "location": "custom_node_types/#",
     "page": "Custom Node Types",
     "title": "Custom Node Types",
     "category": "page",
@@ -321,7 +321,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "custom_node_types.html#PowerDynBase.@DynamicNode",
+    "location": "custom_node_types/#PowerDynBase.@DynamicNode",
     "page": "Custom Node Types",
     "title": "PowerDynBase.@DynamicNode",
     "category": "macro",
@@ -329,7 +329,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "custom_node_types.html#Custom-Node-Types-1",
+    "location": "custom_node_types/#Custom-Node-Types-1",
     "page": "Custom Node Types",
     "title": "Custom Node Types",
     "category": "section",
@@ -337,7 +337,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "states_solutions.html#",
+    "location": "states_solutions/#",
     "page": "States, Solutions & Plotting",
     "title": "States, Solutions & Plotting",
     "category": "page",
@@ -345,7 +345,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "states_solutions.html#States,-Solutions-and-Plotting-1",
+    "location": "states_solutions/#States,-Solutions-and-Plotting-1",
     "page": "States, Solutions & Plotting",
     "title": "States, Solutions & Plotting",
     "category": "section",
@@ -353,7 +353,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "states_solutions.html#PowerDynBase.State",
+    "location": "states_solutions/#PowerDynBase.State",
     "page": "States, Solutions & Plotting",
     "title": "PowerDynBase.State",
     "category": "type",
@@ -361,7 +361,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "states_solutions.html#States-1",
+    "location": "states_solutions/#States-1",
     "page": "States, Solutions & Plotting",
     "title": "States",
     "category": "section",
@@ -369,7 +369,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "states_solutions.html#PowerDynSolve.GridSolution",
+    "location": "states_solutions/#PowerDynSolve.GridSolution",
     "page": "States, Solutions & Plotting",
     "title": "PowerDynSolve.GridSolution",
     "category": "type",
@@ -377,7 +377,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "states_solutions.html#Solutions-and-Plotting-1",
+    "location": "states_solutions/#Solutions-and-Plotting-1",
     "page": "States, Solutions & Plotting",
     "title": "Solutions & Plotting",
     "category": "section",
@@ -385,7 +385,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "error_types.html#",
+    "location": "error_types/#",
     "page": "Error Types",
     "title": "Error Types",
     "category": "page",
@@ -393,7 +393,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "error_types.html#PowerDynBase.PowerDynamicsError",
+    "location": "error_types/#PowerDynBase.PowerDynamicsError",
     "page": "Error Types",
     "title": "PowerDynBase.PowerDynamicsError",
     "category": "type",
@@ -401,7 +401,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "error_types.html#PowerDynBase.NodeDynamicsError",
+    "location": "error_types/#PowerDynBase.NodeDynamicsError",
     "page": "Error Types",
     "title": "PowerDynBase.NodeDynamicsError",
     "category": "type",
@@ -409,7 +409,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "error_types.html#PowerDynBase.GridDynamicsError",
+    "location": "error_types/#PowerDynBase.GridDynamicsError",
     "page": "Error Types",
     "title": "PowerDynBase.GridDynamicsError",
     "category": "type",
@@ -417,7 +417,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "error_types.html#PowerDynBase.StateError",
+    "location": "error_types/#PowerDynBase.StateError",
     "page": "Error Types",
     "title": "PowerDynBase.StateError",
     "category": "type",
@@ -425,7 +425,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "error_types.html#PowerDynSolve.GridSolutionError",
+    "location": "error_types/#PowerDynSolve.GridSolutionError",
     "page": "Error Types",
     "title": "PowerDynSolve.GridSolutionError",
     "category": "type",
@@ -433,7 +433,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "error_types.html#Error-Types-1",
+    "location": "error_types/#Error-Types-1",
     "page": "Error Types",
     "title": "Error Types",
     "category": "section",
@@ -441,7 +441,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fullindex.html#",
+    "location": "fullindex/#",
     "page": "Index",
     "title": "Index",
     "category": "page",
@@ -449,7 +449,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fullindex.html#Index-1",
+    "location": "fullindex/#Index-1",
     "page": "Index",
     "title": "Index",
     "category": "section",
@@ -457,7 +457,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "contact.html#",
+    "location": "contact/#",
     "page": "Contact",
     "title": "Contact",
     "category": "page",
@@ -465,7 +465,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "contact.html#Contact-1",
+    "location": "contact/#Contact-1",
     "page": "Contact",
     "title": "Contact",
     "category": "section",
