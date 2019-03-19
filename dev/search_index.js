@@ -233,11 +233,27 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "node_types/#Node-Types-1",
+    "page": "Node Types",
+    "title": "Node Types",
+    "category": "section",
+    "text": "The currently implementes node types areusing InteractiveUtils, PowerDynBase, Markdown\nnodetypes = subtypes(PowerDynBase.AbstractNodeParameters)\njoin([\"* [`$n`](@ref PowerDynBase.$n)\" for n in nodetypes], \"\\n\") |> Markdown.parseThey are all subtypes of PowerDynBase.AbstractNodeParameters."
+},
+
+{
     "location": "node_types/#PowerDynBase.AbstractNodeParameters",
     "page": "Node Types",
     "title": "PowerDynBase.AbstractNodeParameters",
     "category": "type",
     "text": "Abstract super type for all node parameter types.\n\n\n\n\n\n"
+},
+
+{
+    "location": "node_types/#PowerDynBase.FourthEq",
+    "page": "Node Types",
+    "title": "PowerDynBase.FourthEq",
+    "category": "type",
+    "text": "FourthEq(H, P, D, Ω, E_f, T_d_dash ,T_q_dash ,X_q_dash ,X_d_dash,X_d, X_q)\n\nA node type that applies the 4th-order synchronous machine model with frequency/angle and voltage dynamics.\n\nAdditionally to u, it has the internal dynamic variables\n\nomega representing the frequency of the rotator relative to the grid frequency Omega, i.e. the real frequency omega_r of the rotator is given as omega_r = Omega + omega and\ntheta representing the relative angle of the rotor with respect to the voltage angle phi.\n\nKeyword Arguments\n\nH: inertia\nP: active (real) power output\nD: damping coefficient\nΩ: rated frequency of the power grid, often 50Hz\nT_d_dash: time constant of d-axis\nT_q_dash: time constant of q-axis\nX_d_dash: transient reactance of d-axis\nX_q_dash: transient reactance of q-axis\nX_d: reactance of d-axis\nX_d: reactance of q-axis\n\nMathematical Representation\n\nUsing FourthEq for node a applies the equations\n\n    u = -je_c e^jtheta = -j(e_d + je_q)e^jtheta\n    e_c= e_d + je_q = jue^-jtheta\n    i  = -jie^jtheta = -j(i_d+ j i_q )e^jtheta = Y^L cdot u \n    i_c= i_d + ji_q = jie^-jtheta\n    p = Re (i^* u)\n\nThe fourth-order equations read (according to Sauer, p. 140, eqs. (6110)-(6114)) and p. 35 eqs(3.90)-(3.91)\n\n    fracdthetadt = omega \n     fracdomegadt = P-Domega - p -(x_q-x_d)i_d i_q\n    fracd e_qdt = frac1T_d (- e_q - (x_d - x_d) i_d+ e_f) \n    fracd e_ddt = frac1T_q (- e_d + (x_q - x_q) i_q)  \n\nWith the PowerDynamics.jl \\time{naming conventions} of i and u they read as\n\n   dot u = fracddt(-j e_c e^jtheta)=-j(dot e_d + jdot e_q)e^jtheta + ujomega\n\n\n\n"
 },
 
 {
@@ -281,14 +297,6 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_types/#PowerDynBase.FourthEq",
-    "page": "Node Types",
-    "title": "PowerDynBase.FourthEq",
-    "category": "type",
-    "text": "FourthEq(H, P, D, Ω, E_f, T_d_dash ,T_q_dash ,X_q_dash ,X_d_dash,X_d, X_q)\n\nA node type that applies the 4th-order synchronous machine model with frequency/angle and voltage dynamics.\n\nAdditionally to u, it has the internal dynamic variables\n\nomega representing the frequency of the rotator relative to the grid frequency Omega, i.e. the real frequency omega_r of the rotator is given as omega_r = Omega + omega and\ntheta representing the relative angle of the rotor with respect to the voltage angle phi.\n\nKeyword Arguments\n\nH: inertia\nP: active (real) power output\nD: damping coefficient\nΩ: rated frequency of the power grid, often 50Hz\nT_d_dash: time constant of d-axis\nT_q_dash: time constant of q-axis\nX_d_dash: transient reactance of d-axis\nX_q_dash: transient reactance of q-axis\nX_d: reactance of d-axis\nX_d: reactance of q-axis\n\nMathematical Representation\n\nUsing FourthEq for node a applies the equations\n\n    u = -je_c e^jtheta = -j(e_d + je_q)e^jtheta\n    e_c= e_d + je_q = jue^-jtheta\n    i  = -jie^jtheta = -j(i_d+ j i_q )e^jtheta = Y^L cdot u \n    i_c= i_d + ji_q = jie^-jtheta\n    p = Re (i^* u)\n\nThe fourth-order equations read (according to Sauer, p. 140, eqs. (6110)-(6114)) and p. 35 eqs(3.90)-(3.91)\n\n    fracdthetadt = omega \n     fracdomegadt = P-Domega - p -(x_q-x_d)i_d i_q\n    fracd e_qdt = frac1T_d (- e_q - (x_d - x_d) i_d+ e_f) \n    fracd e_ddt = frac1T_q (- e_d + (x_q - x_q) i_q)  \n\nWith the PowerDynamics.jl \\time{naming conventions} of i and u they read as\n\n   dot u = fracddt(-j e_c e^jtheta)=-j(dot e_d + jdot e_q)e^jtheta + ujomega\n\n\n\n"
-},
-
-{
     "location": "node_types/#PowerDynBase.VSIMinimal",
     "page": "Node Types",
     "title": "PowerDynBase.VSIMinimal",
@@ -305,11 +313,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "node_types/#Node-Types-1",
+    "location": "node_types/#Detailed-Node-Type-Documentation-1",
     "page": "Node Types",
-    "title": "Node Types",
+    "title": "Detailed Node Type Documentation",
     "category": "section",
-    "text": "The currently implementes node types arePurely Algebraic:\nPowerDynBase.PQAlgebraic (PQ-bus)\nPowerDynBase.PVAlgebraic (PV-bus)\nPowerDynBase.SlackAlgebraic (Slack-bus / Vφ-bus)\nSynchronous Machine Models:\nPowerDynBase.SwingEq (2nd order)\nPowerDynBase.SwingEqLVS (2nd order with an additional term for numerical voltage stability)\nPowerDynBase.FourthEq (4th order)\nVoltage Source Inverters:\nPowerDynBase.VSIMinimal\nPowerDynBase.VSIVoltagePT1They are all subtypes of PowerDynBase.AbstractNodeParameters.PowerDynBase.AbstractNodeParameters\nPQAlgebraic\nPVAlgebraic\nSlackAlgebraic\nSwingEq\nSwingEqLVS\nFourthEq\nVSIMinimal\nVSIVoltagePT1"
+    "text": "PowerDynBase.AbstractNodeParametersModules = [PowerDynBase]\nFilter = t -> typeof(t) === DataType && t !== PowerDynBase.AbstractNodeParameters && t <: PowerDynBase.AbstractNodeParameters"
 },
 
 {
